@@ -21,6 +21,5 @@ jobs:
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
           run: |
-            julia -e 'using Pkg; Pkg.add("YourPackage")'
-            julia -e 'using YourPackage; println(YourPackage.some_function())'
+            julia -e 'VERSION'
 
