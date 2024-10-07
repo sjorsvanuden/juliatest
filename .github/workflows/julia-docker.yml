@@ -24,5 +24,4 @@ jobs:
             JULIA_PKG_SERVER=https://pkg.juliahub.com
           run: |
             julia -e 'print(VERSION)
-            julia -e 'using Pkg; Pkg.add("PkgAuthentication")'
 
