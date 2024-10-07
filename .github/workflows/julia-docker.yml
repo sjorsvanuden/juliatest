@@ -1,0 +1,26 @@
+name: Run Julia Container
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-julia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Pull and run Julia container
+        uses: addnab/docker-run-action@v3
+        with:
+          image: julia:1.9  # Specify the Julia version you want
+          options: --rm  # Remove the container when done
+          run: |
+            julia -e 'using Pkg; Pkg.add("YourPackage")'
+            julia -e 'using YourPackage; println(YourPackage.some_function())'
+
