@@ -8,7 +8,7 @@ on:
     branches:
       - main
 env: 
-  JULIA_PKG_SERVER: https://pkg.juliahub.com
+  JULIA_PKG_SERVER: 'https://pkg.juliahub.com'
 jobs:
   run-julia:
     runs-on: ubuntu-latest
@@ -23,6 +23,6 @@ jobs:
           options: --rm  # Remove the container when done
           run: |
             julia -e 'print(VERSION)'
-            julia -e "using Pkg; Pkg.add(\"PrettyPrinting")"
+            julia -e 'using Pkg; Pkg.add("PrettyPrinting")'
 
             
