@@ -22,7 +22,7 @@ jobs:
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
           run: |
-            julia -e 'print(VERSION)
+            julia -e 'print(VERSION)'
             julia -e "using Pkg; Pkg.add(\"PrettyPrinting")"
 
             
