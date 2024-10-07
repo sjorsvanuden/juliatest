@@ -20,7 +20,10 @@ jobs:
         with:
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
-          env: 'JULIA_PKG_SERVER=https://pkg.juliahub.com'
+          env-vars: |
+            JULIA_PKG_SERVER=https://pkg.juliahub.com
           run: |
             julia -e 'print(VERSION)
+            julia -e "using Pkg; Pkg.add(\"PrettyPrinting")"
 
+            
