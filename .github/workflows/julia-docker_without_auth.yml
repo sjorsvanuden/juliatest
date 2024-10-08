@@ -18,7 +18,5 @@ jobs:
       - name: Add auth.toml and authenticate
         run: >
           mkdir -p ~/.julia/servers/pkg.juliahub.com
-
-        #  echo ${{ secrets.AUTH_TOML }}| base64 -d > ~/.julia/servers/pkg.juliahub.com/auth.toml
                     
           julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'
