@@ -28,6 +28,5 @@ jobs:
           options: --rm  # Remove the container when done
           run: |
             julia -e 'print(VERSION)'
-            julia -e 'using Pkg; Pkg.add("JuliaHub");using JuliaHub;JuliaHub.authenticate("https://pkg.juliahub.com")'
-          
+            julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'          
             
