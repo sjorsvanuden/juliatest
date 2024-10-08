@@ -16,16 +16,15 @@ jobs:
 
       - name: Set up auth.toml
         run: |
-          mkdir -p ~/.julia/servers/pkg.juliahub.com
-          echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/pkg.juliahub.com/auth.toml
-          cat ~/.julia/servers/pkg.juliahub.com/auth.toml
+
       - name: Pull and run Julia container
         uses: addnab/docker-run-action@v3
         with:
-          
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
           run: |
+            mkdir -p ~/.julia/servers/pkg.juliahub.com
+            echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/pkg.juliahub.com/auth.toml
             julia -e 'print(VERSION)'
             export JULIA_PKG_SERVER=https://pkg.juliahub.com
             julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'          
