@@ -20,8 +20,8 @@ jobs:
       - name: Pull and run Julia container
         uses: addnab/docker-run-action@v3
         with:
-          image: julia:1.9  # Specify the Julia version you want
-          options: --rm  # Remove the container when done
+          image: julia:1.9
+          options: --rm
           run: |
             mkdir -p ~/.julia/servers/pkg.juliahub.com
             echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/pkg.juliahub.com/auth.toml
