@@ -24,7 +24,7 @@ jobs:
           options: --rm
           run: |
             mkdir -p ~/.julia/servers/pkg.juliahub.com
-            echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/pkg.juliahub.com/auth.toml
+            echo ${{ secrets.AUTH_TOML }}| base64 -d > ~/.julia/servers/pkg.juliahub.com/auth.toml
             julia -e 'print(VERSION)'
             export JULIA_PKG_SERVER=https://pkg.juliahub.com
             julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'          
