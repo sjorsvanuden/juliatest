@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-env:
-  JULIA_PKG_SERVER=https://pkg.juliahub.com
 jobs:
   run-julia:
     runs-on: ubuntu-latest
@@ -29,5 +27,6 @@ jobs:
           options: --rm  # Remove the container when done
           run: |
             julia -e 'print(VERSION)'
+            export JULIA_PKG_SERVER=https://pkg.juliahub.com
             julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'          
             
