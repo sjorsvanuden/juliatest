@@ -17,7 +17,7 @@ jobs:
       - name: Set up auth.toml
         run: |
           mkdir -p ~/.julia/servers/pkg.juliahub.com
-          echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/juliahub.com/auth.toml
+          echo "${{ secrets.AUTH_TOML }}" > ~/.julia/servers/pkg.juliahub.com/auth.toml
         
       - name: Pull and run Julia container
         uses: addnab/docker-run-action@v3
