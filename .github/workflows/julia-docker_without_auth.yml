@@ -16,7 +16,4 @@ jobs:
         JULIA_PKG_SERVER: https://pkg.juliahub.com
     steps:
       - name: Add auth.toml and authenticate
-        run: >
-          mkdir -p ~/.julia/servers/pkg.juliahub.com
-                    
-          julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'
+        run: julia -e 'using Pkg; Pkg.add("PkgAuthentication");using PkgAuthentication;PkgAuthentication.install()'
