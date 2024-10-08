@@ -23,12 +23,12 @@ jobs:
       - name: Pull and run Julia container
         uses: addnab/docker-run-action@v3
         with:
-          env: 
-            JULIA_PKG_SERVER: 'https://pkg.juliahub.com'
+          
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
           run: |
             julia -e 'print(VERSION)'
             julia -e 'using Pkg; Pkg.add("JuliaHub");using JuliaHub;JuliaHub.authenticate()'
-
+          env: 
+            JULIA_PKG_SERVER: 'https://pkg.juliahub.com'
             
