@@ -7,7 +7,8 @@ on:
   pull_request:
     branches:
       - main
-
+env:
+  JULIA_PKG_SERVER=https://pkg.juliahub.com
 jobs:
   run-julia:
     runs-on: ubuntu-latest
