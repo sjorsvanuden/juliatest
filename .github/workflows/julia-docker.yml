@@ -7,8 +7,7 @@ on:
   pull_request:
     branches:
       - main
-env: 
-  JULIA_PKG_SERVER: 'https://pkg.juliahub.com'
+
 jobs:
   run-julia:
     runs-on: ubuntu-latest
@@ -24,6 +23,8 @@ jobs:
       - name: Pull and run Julia container
         uses: addnab/docker-run-action@v3
         with:
+          env: 
+            JULIA_PKG_SERVER: 'https://pkg.juliahub.com'
           image: julia:1.9  # Specify the Julia version you want
           options: --rm  # Remove the container when done
           run: |
